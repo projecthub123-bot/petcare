@@ -18,7 +18,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     //MatFormFieldModule,
     //MatSelectModule
   ],
-  templateUrl: './auth.component.html',
+  templateUrl:[ './auth.component.html'],
   styleUrls: ['./auth.component.scss'],
   animations: [
     trigger('slideSwap', [
