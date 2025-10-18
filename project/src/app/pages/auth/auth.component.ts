@@ -15,7 +15,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     FormsModule,
     MatInputModule,
     MatButtonModule,
-    MatFormFieldModule,
+    //MatFormFieldModule,
     //MatSelectModule
   ],
   templateUrl: './auth.component.html',
