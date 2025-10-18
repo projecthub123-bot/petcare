@@ -13,7 +13,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   imports: [
     CommonModule,
     FormsModule,
-    MatInputModule,
+  //  MatInputModule,
     //MatButtonModule,
     //MatFormFieldModule,
     //MatSelectModule
