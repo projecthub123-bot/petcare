@@ -1,0 +1,152 @@
+<div class="auth-container" [@slideSwap]="isLoginMode ? 'login' : 'signup'">
+  <div class="auth-wrapper" [class.signup-mode]="!isLoginMode">
+
+    <!-- Image Section -->
+    <div class="image-section" [class.right]="!isLoginMode">
+      <div class="image-overlay">
+        <img
+          src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Happy pets"
+          class="pet-image"
+        />
+        <div class="overlay-content">
+          <h2>Welcome to PetCare</h2>
+          <p>Your trusted companion for pet care</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-section" [class.left]="!isLoginMode">
+
+      <!-- Login Form -->
+      <div *ngIf="isLoginMode" class="form-container" @fadeSlide>
+        <div class="form-header">
+          <h1>Welcome Back</h1>
+          <p>Login to your account</p>
+        </div>
+
+        <form (ngSubmit)="onLogin()" class="auth-form">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              [(ngModel)]="loginData.email"
+              name="email"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              [(ngModel)]="loginData.password"
+              name="password"
+              required
+            />
+          </mat-form-field>
+
+          <button mat-raised-button type="submit" class="submit-btn">
+            Login
+          </button>
+
+          <div class="toggle-text">
+            <p>
+              New here?
+              <a (click)="toggleMode()" class="toggle-link">Sign up instead</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Signup Form -->
+      <div *ngIf="!isLoginMode" class="form-container" @fadeSlide>
+        <div class="form-header">
+          <h1>Create Account</h1>
+          <p>Join our pet care community</p>
+        </div>
+
+        <form (ngSubmit)="onSignup()" class="auth-form">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Full Name</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="signupData.fullName"
+              name="fullName"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              [(ngModel)]="signupData.email"
+              name="email"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              [(ngModel)]="signupData.password"
+              name="password"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input
+              matInput
+              type="password"
+              [(ngModel)]="signupData.confirmPassword"
+              name="confirmPassword"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Pet Name</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="signupData.petName"
+              name="petName"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Pet Type</mat-label>
+            <mat-select [(ngModel)]="signupData.petType" name="petType" required>
+              <mat-option *ngFor="let type of petTypes" [value]="type">
+                {{ type }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-raised-button type="submit" class="submit-btn">
+            Sign Up
+          </button>
+
+          <div class="toggle-text">
+            <p>
+              Already have an account?
+              <a (click)="toggleMode()" class="toggle-link">Login instead</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -222,6 +222,6 @@ export class HomeComponent {
   constructor(private router: Router) {}
 
   navigateToAbout(): void {
-    this.router.navigate(['/about']);
+    this.router.navigate(['/auth']);
   }
 }
